@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Lab3</title>
+
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <script src="lib/Chart.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="col-md-6">
+        <canvas id="evTimeChart"></canvas>
+    </div>
+    <div class="col-md-6">
+        <canvas id="reactionChart"></canvas>
+    </div>
+</div>
+<div class="container-fluid ">
+    <div class="container text-center">
+        <div class="col-md-4">
+            <h2>EvTime</h2>
+            <p id="evTime"></p>
+        </div>
+        <div class="col-md-4">
+            <h2>ReactionTime</h2>
+            <p id="reactionTime"></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Ratio</h2>
+            <p id="ratio"></p>
+        </div>
+    </div>
+    <div class="container text-center">
+        <h3>Time</h3>
+        <p id="time"></p>
+    </div>
+    <div class="container-fluid text-center">
+        <div class="container col-md-4">
+            <h3>SF Queue</h3>
+            <ul id="queue" class="list-group">
+
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Current task</h3>
+            <p id="currTask"></p>
+        </div>
+        <div class="container col-md-4">
+            <h3>Solved tasks</h3>
+            <ul id="solved" class="list-group">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/index.js"></script>
+<script src="js/queue.js"></script>
+</body>
+</html>
