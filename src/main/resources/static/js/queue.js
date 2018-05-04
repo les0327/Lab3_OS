@@ -3,7 +3,7 @@ var pReactionTime;
 var pRatio;
 var pTime;
 var ulQueue;
-var pCurrTask;
+var liCurrTask;
 var ulSolved;
 
 function step() {
@@ -16,6 +16,7 @@ function arrToLi(arr) {
     return arr.map(function (value) {
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(taskToString(value)));
+        li.classList.add("list-group-item");
         return li;
     });
 }
@@ -26,7 +27,7 @@ function clear() {
     pRatio.innerHTML = '';
     pTime.innerHTML = '';
     ulQueue.innerHTML = '';
-    pCurrTask.innerHTML = '';
+    liCurrTask.innerHTML = '';
     ulSolved.innerHTML = '';
 }
 
@@ -45,14 +46,14 @@ function model() {
         pReactionTime.appendChild(document.createTextNode(model.reactionTime));
         pRatio.appendChild(document.createTextNode(model.ratio));
         pTime.appendChild(document.createTextNode(model.t));
-        pCurrTask.appendChild(document.createTextNode(taskToString(model.currTask)));
+        liCurrTask.appendChild(document.createTextNode(taskToString(model.currTask)));
         var queueLi = arrToLi(model.queue.tasks);
         var solvedLi = arrToLi(model.solvedTasks);
         queueLi.forEach(function (value) {
             ulQueue.appendChild(value);
         });
         solvedLi.forEach(function (value) {
-            ulSolved.appendChild(value);
+            ulSolved.insertBefore(value, parent.firstChild);
         });
     });
 }
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     pRatio = document.getElementById("ratio");
     pTime = document.getElementById("time");
     ulQueue = document.getElementById("queue");
-    pCurrTask = document.getElementById("currTask");
+    liCurrTask = document.getElementById("currTask");
     ulSolved = document.getElementById("solved");
 
     setInterval(model, 1000);
