@@ -1,6 +1,6 @@
 package lab3.model;
 
-class Task {
+public class Task {
     private double inTime;
     private double solveTime;
     private double onSolving;
@@ -41,6 +41,10 @@ class Task {
 
     public void setOutTime(double outTime) {
         this.outTime = outTime;
+    }
+
+    public double getWaitTime() {
+        return getOutTime() - getInTime();
     }
 
 }

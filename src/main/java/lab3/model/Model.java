@@ -23,6 +23,7 @@ public class Model {
     private double tp;
     private int k = 1;
     private Task currTask = null;
+    private double freeTime = 0;
 
     public Model(@Value("${model.LENGTH}") double LENGTH, @Value("${model.LAMBDA}") double LAMBDA, @Value("${model.MU}") double MU) {
         this.LENGTH = LENGTH;
@@ -131,5 +132,9 @@ public class Model {
 
     public int getK() {
         return k;
+    }
+
+    public double getFreeTime() {
+        return T - solvedTasks.stream().mapToDouble(Task::getSolveTime).sum();
     }
 }
